@@ -12,17 +12,17 @@ function injectKeyboardGamepad(keyboardMap) {
           window.keyboardGamepad.buttons[result.index].value = value;
           break;
         case "axis":
-          window.keyboardGamepad.axes[result.index] = value && result.value;
+          window.keyboardGamepad.axes[result.index] = value !== 0 ? result.value : 0;
           break;
       }
     };
 
     document.addEventListener("keydown", function(event) {
       setKeyCode(event.code, 1);
-    });
+    }, false);
     document.addEventListener("keyup", function(event) {
       setKeyCode(event.code, 0);
-    });
+    }, false);
 
     window.KeyboardGamepad = function() {
       this.id = "keyboardGamepad";
