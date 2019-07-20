@@ -12,7 +12,7 @@ function injectKeyboardGamepad(keyboardMap) {
           window.keyboardGamepad.buttons[result.index].value = value;
           break;
         case "axis":
-          window.keyboardGamepad.axes[result.index].value = value && result.value;
+          window.keyboardGamepad.axes[result.index] = value && result.value;
           break;
       }
     };
